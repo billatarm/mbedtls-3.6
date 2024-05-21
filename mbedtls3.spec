@@ -79,6 +79,9 @@ mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls3
 mkdir -p %{buildroot}/%{_includedir}/psa3
 mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa3
 
+mkdir -p %{buildroot}/%{_includedir}/everest3
+mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest3
+
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
 
@@ -93,7 +96,7 @@ mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa3
 %files devel
 %{_includedir}/mbedtls3/
 %{_includedir}/psa3/
-%{_includedir}/everest/
+%{_includedir}/everest3/
 %{_libdir}/pkgconfig/
 %{_libdir}/cmake/
 %{_libdir}/*.so
