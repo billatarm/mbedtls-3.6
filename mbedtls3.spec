@@ -71,6 +71,11 @@ make apidoc
 # - https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/PDD6RNQMII472HXM4XAUUWWZKKBGHPTO/
 chmod 755 %{buildroot}%{_libdir}/*.so.*
 
+# We want to prefix all the files under their own include and link directories so mbedtls and mbedtls3 can be installed
+# side by side
+mkdir -p %{buildroot}/%{_includedir}/mbedtls3
+mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls3
+
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
 
@@ -83,7 +88,7 @@ chmod 755 %{buildroot}%{_libdir}/*.so.*
 %{_libdir}/*.so.*
 
 %files devel
-%{_includedir}/mbedtls/
+%{_includedir}/mbedtls3/
 %{_includedir}/psa/
 %{_includedir}/everest/
 %{_libdir}/pkgconfig/
