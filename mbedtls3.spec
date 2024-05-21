@@ -84,6 +84,13 @@ mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest3
 
 mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS3
 
+# development .so need a suffix so they won't conflict.
+mv %{buildroot}/%{_libdir}/libeverest.so %{buildroot}/%{_libdir}/libeverest-3.6.so
+mv %{buildroot}/%{_libdir}/libmbedcrypto.so %{buildroot}/%{_libdir}/libmbedcrypto-3.6.so
+mv %{buildroot}/%{_libdir}/libmbedtls.so %{buildroot}/%{_libdir}/libmbedtls-3.6.so
+mv %{buildroot}/%{_libdir}/libmbedx509.so %{buildroot}/%{_libdir}/libmbedx509-3.6.so
+mv %{buildroot}/%{_libdir}/libp256m.so %{buildroot}/%{_libdir}/libp256m-3.6.so
+
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
 
