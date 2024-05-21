@@ -2,7 +2,7 @@
 %global _docdir_fmt %{name}
 %endif
 
-Name: mbedtls3
+Name: mbedtls-3.6
 Version: 3.6.0
 Release: 1%{?dist}
 Summary: Light-weight cryptographic and SSL/TLS library
@@ -10,6 +10,8 @@ License: Apache-2.0
 URL: https://www.trustedfirmware.org/projects/mbed-tls
 Source0: https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.0/mbedtls-3.6.0.tar.bz2
 Patch0: 0001-mbedtls_xor-simplify-and-fix-build-error.diff
+Patch1: 0002-mbedtls-suffix-with-version-upstream-not-stable.diff
+Patch2: 0003-mbedtls-suffix-pkgconfig.diff
 BuildRequires: make
 BuildRequires: gcc-c++
 BuildRequires: cmake
@@ -71,25 +73,18 @@ make apidoc
 # - https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/PDD6RNQMII472HXM4XAUUWWZKKBGHPTO/
 chmod 755 %{buildroot}%{_libdir}/*.so.*
 
-# We want to prefix all the files under their own include and link directories so mbedtls and mbedtls3 can be installed
+# We want to prefix all the files under their own include and link directories so mbedtls and mbedtls3.6, mbedtls3.7, ... can be installed
 # side by side
-mkdir -p %{buildroot}/%{_includedir}/mbedtls3
-mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls3
+mkdir -p %{buildroot}/%{_includedir}/mbedtls-3.6
+mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls-3.6
 
-mkdir -p %{buildroot}/%{_includedir}/psa3
-mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa3
+mkdir -p %{buildroot}/%{_includedir}/psa-3.6
+mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa-3.6
 
-mkdir -p %{buildroot}/%{_includedir}/everest3
-mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest3
+mkdir -p %{buildroot}/%{_includedir}/everest-3.6
+mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest-3.6
 
-mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS3
-
-# development .so need a suffix so they won't conflict.
-mv %{buildroot}/%{_libdir}/libeverest.so %{buildroot}/%{_libdir}/libeverest-3.6.so
-mv %{buildroot}/%{_libdir}/libmbedcrypto.so %{buildroot}/%{_libdir}/libmbedcrypto-3.6.so
-mv %{buildroot}/%{_libdir}/libmbedtls.so %{buildroot}/%{_libdir}/libmbedtls-3.6.so
-mv %{buildroot}/%{_libdir}/libmbedx509.so %{buildroot}/%{_libdir}/libmbedx509-3.6.so
-mv %{buildroot}/%{_libdir}/libp256m.so %{buildroot}/%{_libdir}/libp256m-3.6.so
+mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3.6
 
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
@@ -103,9 +98,9 @@ mv %{buildroot}/%{_libdir}/libp256m.so %{buildroot}/%{_libdir}/libp256m-3.6.so
 %{_libdir}/*.so.*
 
 %files devel
-%{_includedir}/mbedtls3/
-%{_includedir}/psa3/
-%{_includedir}/everest3/
+%{_includedir}/mbedtls-3.6/
+%{_includedir}/psa-3.6/
+%{_includedir}/everest-3.6/
 %{_libdir}/pkgconfig/
 %{_libdir}/cmake/
 %{_libdir}/*.so
