@@ -1,0 +1,48 @@
+diff --git a/3rdparty/everest/CMakeLists.txt b/3rdparty/everest/CMakeLists.txt
+index e0e5adecd..98f5a1921 100644
+--- a/3rdparty/everest/CMakeLists.txt
++++ b/3rdparty/everest/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-set(everest_target "${MBEDTLS_TARGET_PREFIX}everest")
++set(everest_target "${MBEDTLS_TARGET_PREFIX}everest-3.6")
+ 
+ add_library(${everest_target}
+   library/everest.c
+diff --git a/3rdparty/p256-m/CMakeLists.txt b/3rdparty/p256-m/CMakeLists.txt
+index 2ef0d48b7..e28c9fea4 100644
+--- a/3rdparty/p256-m/CMakeLists.txt
++++ b/3rdparty/p256-m/CMakeLists.txt
+@@ -1,4 +1,4 @@
+-set(p256m_target ${MBEDTLS_TARGET_PREFIX}p256m)
++set(p256m_target ${MBEDTLS_TARGET_PREFIX}p256m-3.6)
+ 
+ add_library(${p256m_target}
+     p256-m_driver_entrypoints.c
+diff --git a/library/CMakeLists.txt b/library/CMakeLists.txt
+index e6705de55..e8d5d760e 100644
+--- a/library/CMakeLists.txt
++++ b/library/CMakeLists.txt
+@@ -243,9 +243,9 @@ if (NOT USE_STATIC_MBEDTLS_LIBRARY AND NOT USE_SHARED_MBEDTLS_LIBRARY)
+     message(FATAL_ERROR "Need to choose static or shared mbedtls build!")
+ endif(NOT USE_STATIC_MBEDTLS_LIBRARY AND NOT USE_SHARED_MBEDTLS_LIBRARY)
+ 
+-set(mbedtls_target    "${MBEDTLS_TARGET_PREFIX}mbedtls")
+-set(mbedx509_target   "${MBEDTLS_TARGET_PREFIX}mbedx509")
+-set(mbedcrypto_target "${MBEDTLS_TARGET_PREFIX}mbedcrypto")
++set(mbedtls_target    "${MBEDTLS_TARGET_PREFIX}mbedtls-3.6")
++set(mbedx509_target   "${MBEDTLS_TARGET_PREFIX}mbedx509-3.6")
++set(mbedcrypto_target "${MBEDTLS_TARGET_PREFIX}mbedcrypto-3.6")
+ 
+ set(mbedtls_target    ${mbedtls_target}    PARENT_SCOPE)
+ set(mbedx509_target   ${mbedx509_target}   PARENT_SCOPE)
+@@ -270,8 +270,8 @@ if(USE_STATIC_MBEDTLS_LIBRARY AND USE_SHARED_MBEDTLS_LIBRARY)
+         ${mbedtls_static_target})
+ endif()
+ 
+-set(p256m_target "${MBEDTLS_TARGET_PREFIX}p256m")
+-set(everest_target "${MBEDTLS_TARGET_PREFIX}everest")
++set(p256m_target "${MBEDTLS_TARGET_PREFIX}p256m-3.6")
++set(everest_target "${MBEDTLS_TARGET_PREFIX}everest-3.6")
+ 
+ if(USE_STATIC_MBEDTLS_LIBRARY)
+     add_library(${mbedcrypto_static_target} STATIC ${src_crypto})
