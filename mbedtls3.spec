@@ -76,6 +76,9 @@ chmod 755 %{buildroot}%{_libdir}/*.so.*
 mkdir -p %{buildroot}/%{_includedir}/mbedtls3
 mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls3
 
+mkdir -p %{buildroot}/%{_includedir}/psa3
+mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa3
+
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
 
@@ -89,7 +92,7 @@ mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls3
 
 %files devel
 %{_includedir}/mbedtls3/
-%{_includedir}/psa/
+%{_includedir}/psa3/
 %{_includedir}/everest/
 %{_libdir}/pkgconfig/
 %{_libdir}/cmake/
