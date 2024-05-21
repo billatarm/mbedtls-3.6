@@ -82,6 +82,8 @@ mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa3
 mkdir -p %{buildroot}/%{_includedir}/everest3
 mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest3
 
+mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS3
+
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
 
