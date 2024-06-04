@@ -100,6 +100,8 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3
 %{_libdir}/*.so.*
 
 %files devel
+%{!?_licensedir:%global license %%doc}
+%license LICENSE
 %{_includedir}/mbedtls-3.6/
 %{_includedir}/psa-3.6/
 %{_includedir}/everest-3.6/
@@ -108,6 +110,7 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3
 %{_libdir}/*.so
 
 %files doc
+%license LICENSE
 %doc apidoc/*
 
 %changelog
