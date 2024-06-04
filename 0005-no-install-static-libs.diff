@@ -1,0 +1,22 @@
+diff --git a/3rdparty/everest/CMakeLists.txt b/3rdparty/everest/CMakeLists.txt
+index 98f5a1921..82e2b7a47 100644
+--- a/3rdparty/everest/CMakeLists.txt
++++ b/3rdparty/everest/CMakeLists.txt
+@@ -38,5 +38,5 @@ endif(INSTALL_MBEDTLS_HEADERS)
+ 
+ install(TARGETS ${everest_target}
+   EXPORT MbedTLSTargets
+-  DESTINATION ${CMAKE_INSTALL_LIBDIR}
++  EXCLUDE_FROM_ALL
+   PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)
+diff --git a/3rdparty/p256-m/CMakeLists.txt b/3rdparty/p256-m/CMakeLists.txt
+index e28c9fea4..ab1974328 100644
+--- a/3rdparty/p256-m/CMakeLists.txt
++++ b/3rdparty/p256-m/CMakeLists.txt
+@@ -36,5 +36,5 @@ endif(INSTALL_MBEDTLS_HEADERS)
+ 
+ install(TARGETS ${p256m_target}
+ EXPORT MbedTLSTargets
+-DESTINATION ${CMAKE_INSTALL_LIBDIR}
++EXCLUDE_FROM_ALL
+ PERMISSIONS OWNER_READ OWNER_WRITE GROUP_READ WORLD_READ)

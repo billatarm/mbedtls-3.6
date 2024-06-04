@@ -12,6 +12,8 @@ Source0: https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.0/mbedtls-3.
 Patch0: 0001-mbedtls_xor-simplify-and-fix-build-error.diff
 Patch1: 0002-mbedtls-suffix-with-version-upstream-not-stable.diff
 Patch2: 0003-mbedtls-suffix-pkgconfig.diff
+Patch3: 0004-3rd-party-static.diff
+Patch4: 0005-no-install-static-libs.diff
 BuildRequires: make
 BuildRequires: gcc-c++
 BuildRequires: cmake
