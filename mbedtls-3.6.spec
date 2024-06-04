@@ -54,14 +54,14 @@ export CFLAGS="%{optflags} -Wno-stringop-overflow -Wno-maybe-uninitialized"
 export CXXLAGS="%{optflags} -Wno-stringop-overflow -Wno-maybe-uninitialized"
 
 %cmake \
-	-DCMAKE_BUILD_TYPE=Release \
-	-DLINK_WITH_PTHREAD=ON \
-	-DINSTALL_MBEDTLS_HEADERS=ON \
-	-DENABLE_PROGRAMS=OFF \
-	-DUSE_SHARED_MBEDTLS_LIBRARY=ON \
-	-DUSE_STATIC_MBEDTLS_LIBRARY=OFF \
-	-DGEN_FILES=OFF \
-	-DENABLE_TESTING=Off
+    -DCMAKE_BUILD_TYPE=Release \
+    -DLINK_WITH_PTHREAD=ON \
+    -DINSTALL_MBEDTLS_HEADERS=ON \
+    -DENABLE_PROGRAMS=OFF \
+    -DUSE_SHARED_MBEDTLS_LIBRARY=ON \
+    -DUSE_STATIC_MBEDTLS_LIBRARY=OFF \
+    -DGEN_FILES=OFF \
+    -DENABLE_TESTING=Off
 
 %cmake_build
 make apidoc
