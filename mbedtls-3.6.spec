@@ -75,8 +75,8 @@ make apidoc
 # - https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/PDD6RNQMII472HXM4XAUUWWZKKBGHPTO/
 chmod 755 %{buildroot}%{_libdir}/*.so.*
 
-# We want to prefix all the files under their own include and link directories so mbedtls and mbedtls3.6, mbedtls3.7, ... can be installed
-# side by side
+# We want to prefix all the files under their own include directories so mbedtls and mbedtls-3.6, mbedtls-3.7,
+# and so forth can be installed side by side. This is because of an unstable upstrem
 mkdir -p %{buildroot}/%{_includedir}/mbedtls-3.6
 mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls-3.6
 
