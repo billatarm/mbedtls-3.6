@@ -91,8 +91,6 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
 
-%ldconfig_scriptlets
-
 %files
 %doc ChangeLog
 %{!?_licensedir:%global license %%doc}
