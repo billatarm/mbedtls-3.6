@@ -95,7 +95,12 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3
 %doc ChangeLog
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
-%{_libdir}/*.so.*
+%{_libdir}/libmbedcrypto-3.6.so.3.6.0
+%{_libdir}/libmbedtls-3.6.so.3.6.0
+%{_libdir}/libmbedx509-3.6.so.3.6.0
+%{_libdir}/libmbedcrypto-3.6.so.16
+%{_libdir}/libmbedtls-3.6.so.21
+%{_libdir}/libmbedx509-3.6.so.7
 
 %files devel
 %{!?_licensedir:%global license %%doc}
@@ -105,7 +110,9 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3
 %{_includedir}/everest-3.6/
 %{_libdir}/pkgconfig/
 %{_libdir}/cmake/
-%{_libdir}/*.so
+%{_libdir}/libmbedcrypto-3.6.so
+%{_libdir}/libmbedtls-3.6.so
+%{_libdir}/libmbedx509-3.6.so
 
 %files doc
 %license LICENSE
