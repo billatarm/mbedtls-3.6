@@ -2,7 +2,7 @@
 %global _docdir_fmt %{name}
 %endif
 
-Name: mbedtls-3.6
+Name: mbedtls3.6
 Version: 3.6.0
 Release: 1%{?dist}
 Summary: Light-weight cryptographic and SSL/TLS library
@@ -75,18 +75,18 @@ make apidoc
 # - https://lists.fedoraproject.org/archives/list/devel@lists.fedoraproject.org/thread/PDD6RNQMII472HXM4XAUUWWZKKBGHPTO/
 chmod 755 %{buildroot}%{_libdir}/*.so.*
 
-# We want to prefix all the files under their own include directories so mbedtls and mbedtls-3.6, mbedtls-3.7,
+# We want to prefix all the files under their own include directories so mbedtls and mbedtls3.6, mbedtls-3.7,
 # and so forth can be installed side by side. This is because of an unstable upstrem
-mkdir -p %{buildroot}/%{_includedir}/mbedtls-3.6
-mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls-3.6
+mkdir -p %{buildroot}/%{_includedir}/mbedtls3.6
+mv %{buildroot}/%{_includedir}/mbedtls %{buildroot}/%{_includedir}/mbedtls3.6
 
-mkdir -p %{buildroot}/%{_includedir}/psa-3.6
-mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa-3.6
+mkdir -p %{buildroot}/%{_includedir}/psa3.6
+mv %{buildroot}/%{_includedir}/psa %{buildroot}/%{_includedir}/psa3.6
 
-mkdir -p %{buildroot}/%{_includedir}/everest-3.6
-mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest-3.6
+mkdir -p %{buildroot}/%{_includedir}/everest3.6
+mv %{buildroot}/%{_includedir}/everest %{buildroot}/%{_includedir}/everest3.6
 
-mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3.6
+mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS3.6
 
 # %check
 # %ctest --output-on-failure --force-new-ctest-process --parallel 1
@@ -95,24 +95,24 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS-3
 %doc ChangeLog
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
-%{_libdir}/libmbedcrypto-3.6.so.3.6.0
-%{_libdir}/libmbedtls-3.6.so.3.6.0
-%{_libdir}/libmbedx509-3.6.so.3.6.0
-%{_libdir}/libmbedcrypto-3.6.so.16
-%{_libdir}/libmbedtls-3.6.so.21
-%{_libdir}/libmbedx509-3.6.so.7
+%{_libdir}/libmbedcrypto3.6.so.3.6.0
+%{_libdir}/libmbedtls3.6.so.3.6.0
+%{_libdir}/libmbedx5093.6.so.3.6.0
+%{_libdir}/libmbedcrypto3.6.so.16
+%{_libdir}/libmbedtls3.6.so.21
+%{_libdir}/libmbedx5093.6.so.7
 
 %files devel
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
-%{_includedir}/mbedtls-3.6/
-%{_includedir}/psa-3.6/
-%{_includedir}/everest-3.6/
+%{_includedir}/mbedtls3.6/
+%{_includedir}/psa3.6/
+%{_includedir}/everest3.6/
 %{_libdir}/pkgconfig/
 %{_libdir}/cmake/
-%{_libdir}/libmbedcrypto-3.6.so
-%{_libdir}/libmbedtls-3.6.so
-%{_libdir}/libmbedx509-3.6.so
+%{_libdir}/libmbedcrypto3.6.so
+%{_libdir}/libmbedtls3.6.so
+%{_libdir}/libmbedx5093.6.so
 
 %files doc
 %license LICENSE
