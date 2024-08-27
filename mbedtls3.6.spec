@@ -8,7 +8,7 @@ Release: 1%{?dist}
 Summary: Light-weight cryptographic and SSL/TLS library
 License: Apache-2.0
 URL: https://www.trustedfirmware.org/projects/mbed-tls
-Source0: https://github.com/Mbed-TLS/mbedtls/releases/download/v3.6.0/mbedtls-3.6.0.tar.bz2
+Source0: https://github.com/Mbed-TLS/mbedtls/releases/download/v%{version}/mbedtls-%{version}.tar.bz2
 Patch0: 0001-mbedtls_xor-simplify-and-fix-build-error.diff
 Patch1: 0002-mbedtls-suffix-with-version-upstream-not-stable.diff
 Patch2: 0003-mbedtls-suffix-pkgconfig.diff
@@ -44,7 +44,7 @@ BuildArch:      noarch
 The %{name}-doc package contains documentation.
 
 %prep
-%autosetup -n mbedtls-3.6.0 -p1
+%autosetup -n mbedtls-%{version} -p1
 
 sed -i 's|//\(#define MBEDTLS_THREADING_C\)|\1|' include/mbedtls/mbedtls_config.h
 sed -i 's|//\(#define MBEDTLS_THREADING_PTHREAD\)|\1|' include/mbedtls/mbedtls_config.h
@@ -95,9 +95,9 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS3.
 %doc ChangeLog
 %{!?_licensedir:%global license %%doc}
 %license LICENSE
-%{_libdir}/libmbedcrypto3.6.so.3.6.0
-%{_libdir}/libmbedtls3.6.so.3.6.0
-%{_libdir}/libmbedx5093.6.so.3.6.0
+%{_libdir}/libmbedcrypto3.6.so.%{version}
+%{_libdir}/libmbedtls3.6.so.%{version}
+%{_libdir}/libmbedx5093.6.so.%{version}
 %{_libdir}/libmbedcrypto3.6.so.16
 %{_libdir}/libmbedtls3.6.so.21
 %{_libdir}/libmbedx5093.6.so.7
