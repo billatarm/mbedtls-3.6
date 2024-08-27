@@ -6,7 +6,9 @@ Name: mbedtls3.6
 Version: 3.6.0
 Release: 1%{?dist}
 Summary: Light-weight cryptographic and SSL/TLS library
-License: Apache-2.0
+# BSD Clause is for configs/ext/crypto_config_profile_medium.h which is only in the source RPM and
+# not included in the built binary or devel packages.
+License: Apache-2.0 OR GPL-2.0-or-later AND BSD-3-Clause
 URL: https://www.trustedfirmware.org/projects/mbed-tls
 Source0: https://github.com/Mbed-TLS/mbedtls/releases/download/v%{version}/mbedtls-%{version}.tar.bz2
 Patch0: 0001-mbedtls_xor-simplify-and-fix-build-error.diff
