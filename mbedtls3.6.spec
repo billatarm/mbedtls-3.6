@@ -122,5 +122,5 @@ mv %{buildroot}/%{_libdir}/cmake/MbedTLS %{buildroot}/%{_libdir}/cmake/MbedTLS3.
 %doc apidoc/*
 
 %changelog
-* Tue Apr 02 2024 Bill Roberts <bill.roberts@arm.com> - 3.6.0
+* Tue Apr 02 2024 Bill Roberts <bill.roberts@arm.com> - 3.6.0-1
 - Update to 3.6.0
